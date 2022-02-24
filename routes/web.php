@@ -12,10 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', function () {
+        return view('dashboard.index');
+    })->name('dashboard');
+// });
 
-Route::get('/', function () {
-    return view('dashboard.index');
-});
+Route::resource('/funcionario', Funcionario\FuncionarioController::class);
+
 Route::get('/login', function () {
     return view('login.login');
-});
+})->name('sign-in');
+Route::post('/login', 'Auth\AuthController@login')->name('login');
