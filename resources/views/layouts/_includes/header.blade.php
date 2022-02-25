@@ -59,20 +59,20 @@
             <!-- Nav Item - Funcionario -->
             <li class="nav-item">
                 <a class="nav-link" href="/funcionario">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Funcionários</span>
+                    <i class="fas fa-user"></i>
+                    <span>Administradores</span>
                 </a>
             </li>
             <!-- Nav Item - Administradores -->
             <li class="nav-item">
-                <a class="nav-link" href="/funcionario">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                <a class="nav-link" href="/administrador">
+                    <i class="fas fa-users"></i>
                     <span>Funcionários</span>
                 </a>
             </li>
             <!-- Nav Item - Movimentações -->
             <li class="nav-item">
-                <a class="nav-link" href="/funcionario">
+                <a class="nav-link" href="/movimentacao">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Movimentações</span>
                 </a>

@@ -16,7 +16,7 @@ class AdministradorSeeder extends Seeder
         Administrador::create([
             'nome_completo'      => 'Administrador',
             'login'     => 'administrador@nanoincub.com.br',
-            'senha'  => Hash::make('password'),
+            'senha'  => bcrypt('password'),
         ]);
     }
 }

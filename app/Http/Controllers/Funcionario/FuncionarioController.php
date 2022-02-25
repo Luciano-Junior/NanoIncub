@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Funcionario;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Funcionario;
 
@@ -53,7 +54,7 @@ class FuncionarioController extends Controller
         $funcionario->nome_completo = $request->nome_completo;
         $funcionario->login = $request->login;
         $funcionario->senha = Hash::make($request->senha);
-        $funcionario->administrador_id = 1;
+        $funcionario->administrador_id = Auth::id();
         $funcionario->saldo_atual = 0;
 
         $funcionario->save();
