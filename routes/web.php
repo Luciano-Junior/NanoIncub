@@ -12,11 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', function () {
-        return view('dashboard.index');
-    })->name('dashboard');
-});
+Route::get('/', 'Dashboard\DashboardController@index')->name('dashboard');
 
 Route::resource('/funcionario', Funcionario\FuncionarioController::class);
 Route::get('/funcionario/delete/{id}', 'Funcionario\FuncionarioController@destroy')->name('funcionario.delete');
