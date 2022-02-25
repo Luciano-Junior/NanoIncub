@@ -15,7 +15,7 @@ class CreateMovimentacaosTable extends Migration
     {
         Schema::create('movimentacao', function (Blueprint $table) {
             $table->id();
-            $table->enun('tipo_movimentacao', ['entrada', 'saida']);
+            $table->enum('tipo_movimentacao', ['entrada', 'saida']);
             $table->decimal('valor', 8,2);
             $table->string('observacao', 255);
             $table->dateTime('data_criacao')->nullable();
