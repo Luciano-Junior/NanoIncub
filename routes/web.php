@@ -23,6 +23,8 @@ Route::get('/funcionario/delete/{id}', 'Funcionario\FuncionarioController@destro
 Route::get('/funcionario/extrato/{id}', 'Funcionario\FuncionarioController@extrato')->name('funcionario.extrato');
 Route::post('/funcionario/filter', 'Funcionario\FuncionarioController@filter')->name('funcionario.filter');
 
+Route::get('/movimentacao', 'Movimentacao\MovimentacaoController@index')->name('movimentacao.index');
+
 Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');

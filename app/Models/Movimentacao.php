@@ -17,4 +17,9 @@ class Movimentacao extends Model
         'funcionario_id',
         'administrador_id',
     ];
+
+    public function funcionario()
+    {
+        return $this->belongsTo('App\Models\Funcionario');
+    }
 }
