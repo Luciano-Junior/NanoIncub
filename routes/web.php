@@ -24,6 +24,8 @@ Route::get('/funcionario/extrato/{id}', 'Funcionario\FuncionarioController@extra
 Route::post('/funcionario/filter', 'Funcionario\FuncionarioController@filter')->name('funcionario.filter');
 
 Route::get('/movimentacao', 'Movimentacao\MovimentacaoController@index')->name('movimentacao.index');
+Route::post('/movimentacao/filter', 'Movimentacao\MovimentacaoController@filter')->name('movimentacao.filter');
+Route::get('/movimentacao/create', 'Movimentacao\MovimentacaoController@create')->name('movimentacao.create');
 
 Auth::routes();
 

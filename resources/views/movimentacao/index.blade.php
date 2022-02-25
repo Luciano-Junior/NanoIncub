@@ -72,7 +72,7 @@
                     
                     @if(count($movimentacoes) == 0)
                     <tr>
-                        <td colspan="5">Nenhum resultado encontrado!</td>
+                        <td colspan="6">Nenhum resultado encontrado!</td>
                     </tr>
                     @endif
                 </tbody>

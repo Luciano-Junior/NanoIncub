@@ -47,6 +47,9 @@
     <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
     <script src="https://kit.fontawesome.com/ea1875e728.js" crossorigin="anonymous"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script src="{{asset('js/app.js')}}"></script>
+
     <!-- Core plugin JavaScript-->
     <script src="{{asset('js/jquery.easing.min.js')}}"></script>
 
