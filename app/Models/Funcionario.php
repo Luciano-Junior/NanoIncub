@@ -20,4 +20,9 @@ class Funcionario extends Model
     ];
 
     protected $dates = ['data_criacao','data_alteracao'];
+
+    public function movimentacao()
+    {
+        return $this->hasMany('App\Models\Movimentacao');
+    }
 }

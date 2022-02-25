@@ -42,7 +42,7 @@
 
             <div class="col-lg-12">
 
-            <table class="table table-striped">
+            <table class="table table-striped extrato">
                 <thead>
                     <tr>
                     <th scope="col">ID</th>
@@ -61,7 +61,7 @@
                         <td>{{$funcionario->data_criacao->format("d/m/Y")}}</td>
                         <td>
                             <a class="btn btn-sm btn-primary"href="{{route('funcionario.edit',$funcionario->id)}}"><i class="fa fa-edit"></i></a>
-                            <a class="btn btn-sm btn-primary"href="{{route('funcionario.extrato',$funcionario->id)}}"><i class="fa fa-file"></i></a>
+                            <a class="btn btn-sm btn-primary" href="{{route('funcionario.extrato',$funcionario->id)}}"><i class="fa fa-file"></i></a>
                             <a class="btn btn-sm btn-danger" onclick="return confirm('Deseja realmente excluir?')" href="{{route('funcionario.delete',$funcionario->id)}}"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>

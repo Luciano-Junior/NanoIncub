@@ -21,7 +21,7 @@ class FuncionarioController extends Controller
      */
     public function index()
     {
-        $funcionarios = Funcionario::paginate(5);
+        $funcionarios = Funcionario::with('movimentacao')->paginate(5);
         return view('funcionario.index', compact('funcionarios'));
     }
 
@@ -139,6 +139,12 @@ class FuncionarioController extends Controller
     {
         Funcionario::destroy($id);
         return redirect()->route('funcionario.index')->with('success', "Registro excluído com sucesso!");
+    }
+
+    public function extrato($id){
+        $movimentacoes = Funcionario::with('movimentacao')->where('id',$id)->first();
+        // dd($movimentacoes);
+        return view('funcionario.extrato',compact('movimentacoes'));
     }
 
 }
