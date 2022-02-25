@@ -18,4 +18,6 @@ class Funcionario extends Model
         'saldo_atual',
         'administrador_id',
     ];
+
+    protected $dates = ['data_criacao','data_alteracao'];
 }
