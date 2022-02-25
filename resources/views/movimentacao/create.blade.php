@@ -8,6 +8,9 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Cadastro de Movimentação</h1>
+            <a href="{{url()->previous()}}" class="btn btn-primary">
+                <i class="fa fa-arrow-left"></i> Voltar
+            </a>
         </div>
         <form method="POST" action="{{route('movimentacao.store')}}">
             @csrf
