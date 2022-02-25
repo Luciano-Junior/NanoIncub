@@ -9,6 +9,10 @@ use App\Models\Funcionario;
 
 class FuncionarioController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -65,7 +69,7 @@ class FuncionarioController extends Controller
      */
     public function show($id)
     {
-        //
+        $funcionario = Funcionario::find($id);
     }
 
     /**
