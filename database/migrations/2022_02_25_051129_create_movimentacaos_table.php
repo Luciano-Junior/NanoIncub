@@ -13,9 +13,17 @@ class CreateMovimentacaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('movimentacaos', function (Blueprint $table) {
+        Schema::create('movimentacao', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->enun('tipo_movimentacao', ['entrada', 'saida']);
+            $table->decimal('valor', 8,2);
+            $table->string('observacao', 255);
+            $table->dateTime('data_criacao')->nullable();
+            $table->unsignedBigInteger('funcionario_id');
+            $table->unsignedBigInteger('administrador_id');
+
+            $table->foreign('funcionario_id')->references('id')->on('funcionario');
+            $table->foreign('administrador_id')->references('id')->on('administrador');
         });
     }
 
@@ -26,6 +34,6 @@ class CreateMovimentacaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movimentacaos');
+        Schema::dropIfExists('movimentacao');
     }
 }
