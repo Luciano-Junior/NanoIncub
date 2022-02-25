@@ -10,6 +10,7 @@
             <h1 class="h3 mb-0 text-gray-800">Cadastro de Funcionário</h1>
         </div>
         <form method="POST" action="/funcionario">
+            @csrf
             <div class="form-row">
                 <div class="form-group col-md-12">
                 <label for="nome">Nome Completo</label>
@@ -19,7 +20,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                 <label for="login">Login</label>
-                <input type="text" class="form-control" id="login" name="nome_completo">
+                <input type="text" class="form-control" id="login" name="login">
                 </div>
                 <div class="form-group col-md-4">
                 <label for="senha">Senha</label>
@@ -27,17 +28,20 @@
                 </div>
                 <div class="form-group col-md-4">
                 <label for="confirma_senha">Confirma Senha</label>
-                <input type="password" class="form-control" id="confirma_senha" name="confirma_senha">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="saldo">Saldo Atual</label>
-                    <input type="text" class="form-control" id="saldo" name="saldo_atual">
+                <input type="password" class="form-control" id="confirma_senha" name="senha_confirmation">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
+        @if ($errors->any())
+            <div class="alert alert-danger mt-2">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </div>
 
 </div>

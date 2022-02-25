@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Funcionario;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Models\Funcionario;
 
 class FuncionarioController extends Controller
 {
@@ -14,7 +16,8 @@ class FuncionarioController extends Controller
      */
     public function index()
     {
-        return view('funcionario.index');
+        $funcionarios = Funcionario::all();
+        return view('funcionario.index', compact('funcionarios'));
     }
 
     /**
@@ -35,7 +38,23 @@ class FuncionarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'nome_completo' => 'required|max:255',
+            'login' => 'required|unique:funcionario|min:6',
+            'senha' => 'required|confirmed|min:6',
+        ]);
+
+        $funcionario = new Funcionario();
+        $funcionario->nome_completo = $request->nome_completo;
+        $funcionario->login = $request->login;
+        $funcionario->senha = Hash::make($request->senha);
+        $funcionario->administrador_id = 1;
+        $funcionario->saldo_atual = 0;
+
+        $funcionario->save();
+        
+        return redirect()->route('funcionario.index');
     }
 
     /**
