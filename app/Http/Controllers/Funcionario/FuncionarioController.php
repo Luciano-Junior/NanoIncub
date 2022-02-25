@@ -25,6 +25,21 @@ class FuncionarioController extends Controller
         return view('funcionario.index', compact('funcionarios'));
     }
 
+    public function filter(Request $request){
+        $nome = $request->nome;
+        $data = $request->data;
+
+        $funcionarios = Funcionario::when($nome != null && $nome != '', function($q) use ($nome){
+            $q->where('nome_completo',"%".$nome."%");
+        })
+        ->when($data != null && $data != '', function($q) use ($data){
+            $q->where('data_criacao',\Carbon\Carbon::parse($data)->format('Y-m-d'));
+        })
+        ->paginate(5);
+
+        return view('funcionario.index', compact('funcionarios','nome','data'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
