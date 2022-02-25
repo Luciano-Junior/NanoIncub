@@ -30,6 +30,9 @@
         </div>
         @if ($message = Session::get('success'))
             <div class="alert alert-success mt-2">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
                 <ul>
                     <li>{{ $message }}</li>
                 </ul>

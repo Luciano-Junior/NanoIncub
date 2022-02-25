@@ -88,6 +88,6 @@ class MovimentacaoController extends Controller
             Funcionario::find($request->funcionario)->decrement('saldo_atual',(float)$request->valor);
         }
         
-        return redirect()->route('funcionario.index')->with('success',"Dados salvos com sucesso!");
+        return redirect()->route('movimentacao.index')->with('success',"Dados salvos com sucesso!");
     }
 }
