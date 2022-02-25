@@ -11,13 +11,13 @@ Clonar projeto no seu computador:
   git clone https://github.com/Luciano-Junior/NanoIncub.git
 ```
 
-Executar o comando composer install:
-
+Executar o comando via composer:
+Obs: Se você não possui o composer instalado, instale pelo site [COMPOSER](https://getcomposer.org/)
 ```bash
   composer install
 ```
 
-- Criar banco de dados
+- Criar banco de dados com o nome 'nano' ou o nome de sua preferência
 
 - Copiar arquivo ```.env.example``` e renomear para ```.env```
 
@@ -39,6 +39,10 @@ php artisan migrate --seed
 - Executar comando abaixo para rodar o projeto
 ```bash
   php artisan serve
+``` 
+- Agora é so abrir no seu navegador na porta padrão por exemplo:
+```bash
+  localhost:8000
 ``` 
 ### Instruções de acesso
 
