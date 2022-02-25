@@ -19,11 +19,11 @@
                 @csrf
                 <div class="form-group mx-sm-3 mx-auto mb-2">
                     <label for="nome" class="sr-only">Nome</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" value="{{$nome}}">
+                    <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" value="{{isset($nome) ? $nome : ''}}">
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
                     <label for="data" class="sr-only">Data Cadastro</label>
-                    <input type="date" class="form-control" id="data" placeholder="Data de Cadastro" name="data" value="{{$data}}">
+                    <input type="date" class="form-control" id="data" placeholder="Data de Cadastro" name="data" value="{{isset($data) ? $data : ''}}">
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Buscar</button>
             </form>
@@ -63,6 +63,12 @@
                         </td>
                     </tr>
                     @endforeach
+                    
+                    @if(count($funcionarios) == 0)
+                    <tr>
+                        <td colspan="5">Nenhum resultado encontrado!</td>
+                    </tr>
+                    @endif
                 </tbody>
             </table>
             {!! $funcionarios->links() !!}

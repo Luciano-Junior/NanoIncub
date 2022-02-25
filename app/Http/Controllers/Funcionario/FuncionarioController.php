@@ -30,10 +30,10 @@ class FuncionarioController extends Controller
         $data = $request->data;
 
         $funcionarios = Funcionario::when($nome != null && $nome != '', function($q) use ($nome){
-            $q->where('nome_completo',"%".$nome."%");
+            $q->where('nome_completo',"like","%".$nome."%");
         })
         ->when($data != null && $data != '', function($q) use ($data){
-            $q->where('data_criacao',\Carbon\Carbon::parse($data)->format('Y-m-d'));
+            $q->whereDate('data_criacao',\Carbon\Carbon::parse($data)->format('Y-m-d'));
         })
         ->paginate(5);
 
