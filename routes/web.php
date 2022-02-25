@@ -19,6 +19,8 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::resource('/funcionario', Funcionario\FuncionarioController::class);
+Route::get('/funcionario/delete/{id}', 'Funcionario\FuncionarioController@destroy')->name('funcionario.delete');
+Route::get('/funcionario/extrato/{id}', 'Funcionario\FuncionarioController@extrato')->name('funcionario.delete');
 
 Auth::routes();
 

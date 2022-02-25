@@ -21,7 +21,7 @@ class FuncionarioController extends Controller
      */
     public function index()
     {
-        $funcionarios = Funcionario::all();
+        $funcionarios = Funcionario::paginate(5);
         return view('funcionario.index', compact('funcionarios'));
     }
 
@@ -59,7 +59,7 @@ class FuncionarioController extends Controller
 
         $funcionario->save();
         
-        return redirect()->route('funcionario.index');
+        return redirect()->route('funcionario.index')->with('success',"Dados salvos com sucesso!");
     }
 
     /**
@@ -71,6 +71,7 @@ class FuncionarioController extends Controller
     public function show($id)
     {
         $funcionario = Funcionario::find($id);
+        return view('funcionario.edit',compact('funcionario'));
     }
 
     /**
@@ -81,7 +82,8 @@ class FuncionarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $funcionario = Funcionario::find($id);
+        return view('funcionario.edit',compact('funcionario'));
     }
 
     /**
@@ -93,7 +95,23 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nome_completo' => 'required|max:255',
+            'login' => 'required|min:6|unique:funcionario,login,'. $id,
+            'senha' => 'confirmed',
+        ]);
+
+        $funcionario = Funcionario::find($id);
+        $funcionario->nome_completo = $request->nome_completo;
+        $funcionario->login = $request->login;
+        $funcionario->administrador_id = Auth::id();
+        if(isset($request->senha) && $request->senha != ""){
+            $funcionario->senha = Hash::make($request->senha);
+        }
+
+        $funcionario->save();
+
+        return redirect()->route('funcionario.index')->with('success',"Dados alterados com sucesso!");
     }
 
     /**
@@ -104,6 +122,8 @@ class FuncionarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Funcionario::destroy($id);
+        return redirect()->route('funcionario.index')->with('success', "Registro excluído com sucesso!");
     }
+
 }

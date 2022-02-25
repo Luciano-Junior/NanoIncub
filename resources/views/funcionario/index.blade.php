@@ -27,7 +27,13 @@
                 <button type="submit" class="btn btn-primary mb-2">Buscar</button>
             </form>
         </div>
-
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success mt-2">
+                <ul>
+                    <li>{{ $message }}</li>
+                </ul>
+            </div>
+        @endif
         <div class="row">
 
             <div class="col-lg-12">
@@ -52,12 +58,13 @@
                         <td>
                             <a class="btn btn-sm btn-primary"href="{{route('funcionario.edit',$funcionario->id)}}"><i class="fa fa-edit"></i></a>
                             <a class="btn btn-sm btn-primary"href="{{route('funcionario.destroy',$funcionario->id)}}"><i class="fa fa-file"></i></a>
-                            <a class="btn btn-sm btn-danger"href="{{route('funcionario.destroy',$funcionario->id)}}"><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-sm btn-danger"href="{{route('funcionario.delete',$funcionario->id)}}">@csrf @method('delete')<i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+            {!! $funcionarios->links() !!}
 
             </div>
 

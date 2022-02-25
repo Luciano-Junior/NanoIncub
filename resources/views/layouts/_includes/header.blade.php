@@ -58,14 +58,14 @@
 
             <!-- Nav Item - Funcionario -->
             <li class="nav-item">
-                <a class="nav-link" href="/funcionario">
+                <a class="nav-link" href="/administrador">
                     <i class="fas fa-user"></i>
                     <span>Administradores</span>
                 </a>
             </li>
             <!-- Nav Item - Administradores -->
             <li class="nav-item">
-                <a class="nav-link" href="/administrador">
+                <a class="nav-link" href="/funcionario">
                     <i class="fas fa-users"></i>
                     <span>Funcionários</span>
                 </a>
