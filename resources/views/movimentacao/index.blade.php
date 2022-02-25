@@ -26,11 +26,11 @@
                     <input type="date" class="form-control" id="data" placeholder="Data de Cadastro" name="data" value="{{isset($data) ? $data : ''}}">
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
-                    <label for="data" class="sr-only">Data Cadastro</label>
+                    <label for="tipo" class="sr-only">Tipo Movimentação</label>
                     <select class="form-control" id="tipo" name="tipo">
                         <option value="">Escolha...</option>
-                        <option value="entrada">Entrada</option>
-                        <option value="saida">Saida</option>
+                        <option value="entrada" {{ isset($tipo) && $tipo == "entrada" ? 'selected' : ''}}>Entrada</option>
+                        <option value="saida" {{ isset($tipo) && $tipo == "saida" ? 'selected':''}}>Saida</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Buscar</button>

@@ -26,6 +26,7 @@ Route::post('/funcionario/filter', 'Funcionario\FuncionarioController@filter')->
 Route::get('/movimentacao', 'Movimentacao\MovimentacaoController@index')->name('movimentacao.index');
 Route::post('/movimentacao/filter', 'Movimentacao\MovimentacaoController@filter')->name('movimentacao.filter');
 Route::get('/movimentacao/create', 'Movimentacao\MovimentacaoController@create')->name('movimentacao.create');
+Route::post('/movimentacao', 'Movimentacao\MovimentacaoController@store')->name('movimentacao.store');
 
 Auth::routes();
 

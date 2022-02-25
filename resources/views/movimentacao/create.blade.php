@@ -9,7 +9,7 @@
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Cadastro de Movimentação</h1>
         </div>
-        <form method="POST" action="/movimentacao">
+        <form method="POST" action="{{route('movimentacao.store')}}">
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-4">
